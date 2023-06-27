@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutorial Management</title>
+  <style>
+
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      
+    }
+
+    h1 {
+        margin-top: 100px;
+      text-align: center;
+      font-size: 50px;
+    }
+
+    h2 {
+      margin-top: 50px;
+    }
+
+    h3{
+        margin-top: 35px;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 50px;
+    }
+
+    h4{
+        margin-top: 0px;
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 35px;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: inline-block;
+      width: 150px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 200px;
+      background-color: gray;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+    }
+
+    button[type="submit"] {
+      margin-left: 150px;
+    }
+
+    .students-table th,
+
+
+
+    
+    #messageContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 9999;
+}
+
+.success {
+  background-color: green;
+  color: white;
+  height: 40px;
+  border: 0.5px solid white;
+  border-radius: 10px;
+  padding: 10px; /* Add spacing on all sides */
+}
+
+.error {
+  background-color: darkred;
+  color: white;
+  text-align: center;
+  height: 40px;
+  border: 0.5px solid white;
+  border-radius: 10px;
+  padding: 10px; /* Add spacing on all sides */
+}
+
+
+
+
+
+
+
+
+
+    .tutors-table th,
+.tutors-table td {
+  padding: 10px; /* Adjust the value to increase or decrease spacing */
+}
+
+
+.students-table td {
+  padding: 10px; 
+}
+
+
+.tutorials-table th,
+.tutorials-table td {
+  padding: 10px; /* Adjust the value to increase or decrease spacing */
+}
+
+
+
+
+    
+    .gap {
+      margin-top: 40px;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <h3>Tutorial Management</h3>
+  <h4>Ethan Toomey 21521199</h4>
+
+
+  
+  <h1>Student</h1>
+
+
+  <h2>Add Student</h2>
+  <form id="studentForm">
+    <label for="title">Title:</label>
+    <select id="title" name="title" required>
+      <option value="">Select Title</option>
+      <option value="Mr">Mr</option>
+      <option value="Ms">Ms</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Dr">Dr</option>
+      <option value="Prof">Prof</option>
+      <option value="Other">Other</option>
+    </select><br>
+  
+    <div id="otherTitleInput" style="display: none;">
+      <label for="otherTitle">Other Title:</label>
+      <input type="text" id="otherTitle" name="otherTitle"><br>
+    </div>
+  
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br>
+  
+    
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+    
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="addressLine1">Address Line 1:</label>
+    <input type="text" id="addressLine1" name="addressLine1" required><br>
+    
+    <label for="addressLine2">Address Line 2 (optional):</label>
+    <input type="text" id="addressLine2" name="addressLine2"><br>
+    
+    <label for="town">Town:</label>
+    <input type="text" id="town" name="town" required><br>
+    
+    <label for="county">County:</label>
+    <input type="text" id="county" name="county" required><br>
+    
+    <label for="eircode">Eircode:</label>
+    <input type="text" id="eircode" name="eircode" required><br>
+    
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday" required><br>
+    
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select><br>
+    
+    <label for="virtualTutorial">Virtual Tutorial:</label>
+    <input type="checkbox" id="virtualTutorial" name="virtualTutorial"><br>
+    
+    <label for="parentGuardian">Parent/Guardian:</label>
+    <input type="text" id="parentGuardian" name="parentGuardian"><br>
+    
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required><br>
+    
+    <button type="submit">Add Student</button>
+  </form>
+
+
+  
+
+  <script>
+    const titleSelect = document.getElementById('title');
+    const otherTitleInput = document.getElementById('otherTitleInput');
+    const otherTitleField = document.getElementById('otherTitle');
+  
+    titleSelect.addEventListener('change', function() {
+      if (titleSelect.value === 'Other') {
+        otherTitleInput.style.display = 'block';
+        otherTitleField.setAttribute('required', 'required');
+      } else {
+        otherTitleInput.style.display = 'none';
+        otherTitleField.removeAttribute('required');
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+ <h2>Update Student</h2>
+  <form id="updateForm">
+    <label for="updateId">Student ID:</label>
+    <input type="text" id="updateId" name="updateId" required><br>
+    
+    <label for="updateTitle">Title:</label>
+    <select id="updateTitle" name="updateTitle" required>
+      <option value="">Select Title</option>
+      <option value="Mr">Mr</option>
+      <option value="Ms">Ms</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Miss">Miss</option>
+      <option value="Dr">Dr</option>
+    </select><br>
+    
+    <label for="updateFirstName">First Name:</label>
+    <input type="text" id="updateFirstName" name="updateFirstName" required><br>
+    
+    <label for="updateLastName">Last Name:</label>
+    <input type="text" id="updateLastName" name="updateLastName" required><br>
+    
+    <label for="updatePhoneNumber">Phone Number:</label>
+    <input type="text" id="updatePhoneNumber" name="updatePhoneNumber" required><br>
+    
+    <label for="updateEmail">Email:</label>
+    <input type="email" id="updateEmail" name="updateEmail" required><br>
+    
+    <label for="updateAddressLine1">Address Line 1:</label>
+    <input type="text" id="updateAddressLine1" name="updateAddressLine1" required><br>
+    
+    <label for="updateAddressLine2">Address Line 2 (optional):</label>
+    <input type="text" id="updateAddressLine2" name="updateAddressLine2"><br>
+    
+    <label for="updateTown">Town:</label>
+    <input type="text" id="updateTown" name="updateTown" required><br>
+    
+    <label for="updateCounty">County:</label>
+    <input type="text" id="updateCounty" name="updateCounty" required><br>
+    
+    <label for="updateEircode">Eircode:</label>
+    <input type="text" id="updateEircode" name="updateEircode" required><br>
+    
+    <label for="updateBirthday">Birthday:</label>
+    <input type="date" id="updateBirthday" name="updateBirthday" required><br>
+    
+    <label for="updateGender">Gender:</label>
+    <select id="updateGender" name="updateGender" required>
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select><br>
+    
+    <label for="updateVirtualTutorial">Virtual Tutorial:</label>
+    <input type="checkbox" id="updateVirtualTutorial" name="updateVirtualTutorial"><br>
+    
+    <label for="updateParentGuardian">Parent/Guardian:</label>
+    <input type="text" id="updateParentGuardian" name="updateParentGuardian"><br>
+    
+    <label for="updateSubject">Subject:</label>
+    <input type="text" id="updateSubject" name="updateSubject" required><br>
+    
+    <button type="submit">Update Student</button>
+  </form>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Delete Student</h2>
+  <form id="deleteForm">
+    <label for="deleteId">Student ID:</label>
+    <input type="text" id="deleteId" name="deleteId" required><br>
+    <button type="submit">Delete Student</button>
+  </form>
+
+
+
+
+</head>
+<body>
+    <h2>Retrieve Students</h2>
+    <button onclick="retrieveStudents()">Retrieve Students</button>
+    <div id="students-container"></div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <h1>Tutor</h1>
+
+
+
+  <h2>Add Tutor</h2>
+  <form id="tutorForm">
+    <label for="title">Title:</label>
+    <select id="title" name="title" required>
+      <option value="">Select Title</option>
+      <option value="Mr">Mr</option>
+      <option value="Ms">Ms</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Dr">Dr</option>
+      <option value="Prof">Prof</option>
+    </select><br>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br>
+    
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+    
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="addressLine1">Address Line 1:</label>
+    <input type="text" id="addressLine1" name="addressLine1" required><br>
+    
+    <label for="addressLine2">Address Line 2 (optional):</label>
+    <input type="text" id="addressLine2" name="addressLine2"><br>
+    
+    <label for="town">Town:</label>
+    <input type="text" id="town" name="town" required><br>
+    
+    <label for="county">County:</label>
+    <input type="text" id="county" name="county" required><br>
+    
+    <label for="eircode">Eircode:</label>
+    <input type="text" id="eircode" name="eircode" required><br>
+    
+
+    
+    <button type="submit">Add Tutor</button>
+  </form>
+  
+
+
+
+
+
+
+
+  <h2>Update Tutor</h2>
+  <form id="updateTutorForm">
+    <label for="tutorId">Tutor ID:</label>
+    <input type="text" id="tutorId" name="tutorId" required><br>
+    
+    <label for="updateTitle">Title:</label>
+    <select id="updateTitle" name="updateTitle" required>
+      <option value="">Select Title</option>
+      <option value="Mr">Mr</option>
+      <option value="Ms">Ms</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Dr">Dr</option>
+      <option value="Prof">Prof</option>
+    </select><br>
+  
+    <label for="updateFirstName">First Name:</label>
+    <input type="text" id="updateFirstName" name="updateFirstName" required><br>
+  
+    <label for="updateLastName">Last Name:</label>
+    <input type="text" id="updateLastName" name="updateLastName" required><br>
+  
+    <label for="updatePhoneNumber">Phone Number:</label>
+    <input type="text" id="updatePhoneNumber" name="updatePhoneNumber" required><br>
+  
+    <label for="updateEmail">Email:</label>
+    <input type="email" id="updateEmail" name="updateEmail" required><br>
+  
+    <label for="updateAddressLine1">Address Line 1:</label>
+    <input type="text" id="updateAddressLine1" name="updateAddressLine1" required><br>
+  
+    <label for="updateAddressLine2">Address Line 2 (optional):</label>
+    <input type="text" id="updateAddressLine2" name="updateAddressLine2"><br>
+  
+    <label for="updateTown">Town:</label>
+    <input type="text" id="updateTown" name="updateTown" required><br>
+  
+    <label for="updateCounty">County:</label>
+    <input type="text" id="updateCounty" name="updateCounty" required><br>
+  
+    <label for="updateEircode">Eircode:</label>
+    <input type="text" id="updateEircode" name="updateEircode" required><br>
+  
+    <button type="submit">Update Tutor</button>
+  </form>
+  
+
+
+
+<h2>Delete Tutor</h2>
+<form id="deleteTutorForm">
+  <label for="deleteId">Tutor ID:</label>
+  <input type="text" id="deleteId" name="deleteId" required><br>
+  <button type="submit">Delete Tutor</button>
+
+  </form>
+  
+
+
+
+</head>
+<body>
+    <h2>Retrieve Tutors</h2>
+    <button onclick="retrieveTutors()">Retrieve Tutors</button>
+    <div id="tutors-container"></div>
+
+</body>
+
+
+
+
+
+<head>
+    <title>Tutorial Form</title>
+</head>
+<body>
+    <h1>Tutorial</h1>
+    <h2>New Tutorial</h2>
+
+    <form id="tutorialForm" action="javascript:void(0)">
+        <label for="date">Date:</label>
+        <input type="date" id="date" required><br>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" required><br>
+
+        <label for="students">Students (comma-separated):</label>
+        <input type="text" id="students" required><br>
+
+        <label for="tutor">Tutor:</label>
+        <input type="text" id="tutor" required><br>
+
+        <label for="fee">Fee:</label>
+        <input type="number" id="fee" required><br>
+
+        <label for="tutorialNumber">Tutorial Number:</label>
+        <input type="text" id="tutorialNumber" required><br>
+
+        <label for="attendance">Attendance:</label>
+        <select id="attendance" required>
+            <option value="">Select attendance</option>
+            <option value="present">Present</option>
+            <option value="cancelled">Cancelled</option>
+            <option value="no-show">No Show</option>
+        </select><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" required><br>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" rows="4" cols="50"></textarea><br>
+
+        <button id="submitButton" type="button">Create Tutorial</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+
+
+
+
+
+  <body>
+    <h2>Retrieve Tutorials</h2>
+    <button onclick="retrieveTutorials()">Retrieve Tutorials</button>
+    <div id="tutorials-container"></div>
+</body>
+
+
+
+
+
+
+  
+  <div id="messageContainer"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+
+
+
+
+
+
+
+
+
+
+    // Add event listener to the studentForm submission
+    document.getElementById('studentForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get form data
+      const form = event.target;
+      const formData = new FormData(form);
+      const studentData = Object.fromEntries(formData.entries());
+
+      // Make POST request to the backend
+      fetch('/students', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(studentData)
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Student added successfully');
+          // Reset the form
+          form.reset();
+          displayMessage('Student added successfully', 'success');
+        } else {
+          response.json().then(data => {
+            console.error('Failed to add student:', data.message);
+            displayMessage(`Failed to add student: ${data.message}`, 'error');
+          }).catch(error => {
+            console.error('Student added successfully');
+            displayMessage('Student added successfully');
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        displayMessage('An error occurred while adding student', 'error');
+      });
+    });
+
+
+
+
+
+
+
+    
+// Add event listener to the update form submission
+document.getElementById('updateForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+  
+  // Get form data
+  const form = event.target;
+  const updateId = form.elements.updateId.value;
+  const updatedStudentData = {
+    firstName: form.elements.updateFirstName.value,
+    lastName: form.elements.updateLastName.value,
+    phoneNumber: form.elements.updatePhoneNumber.value,
+    email: form.elements.updateEmail.value,
+    addressLine1: form.elements.updateAddressLine1.value,
+    addressLine2: form.elements.updateAddressLine2.value,
+    town: form.elements.updateTown.value,
+    county: form.elements.updateCounty.value,
+    eircode: form.elements.updateEircode.value,
+    birthday: form.elements.updateBirthday.value,
+    gender: form.elements.updateGender.value,
+    virtualTutorial: form.elements.updateVirtualTutorial.checked,
+    parentGuardian: form.elements.updateParentGuardian.value,
+    subject: form.elements.updateSubject.value
+  };
+
+  // Make PUT request to the backend
+  fetch(`/students/${updateId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedStudentData)
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Student updated successfully');
+      form.reset();
+      displayMessage('Student updated successfully', 'success');
+    } else {
+      response.json().then(data => {
+        console.error('Failed to update student:', data.message);
+        displayMessage(`Failed to update student: ${data.message}`, 'error');
+      }).catch(error => {
+        console.error('Failed to update student');
+        displayMessage('Failed to update student', 'error');
+      });
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    displayMessage('An error occurred while updating student', 'error');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+    
+    // Function to display error or success message
+    function displayMessage(message, type) {
+      const messageContainer = document.getElementById('messageContainer');
+      const messageElement = document.createElement('div');
+      messageElement.textContent = message;
+      messageElement.classList.add(type);
+      messageContainer.appendChild(messageElement);
+
+      // Set timeout to remove the message after 8 seconds
+      setTimeout(() => {
+        messageElement.remove();
+      }, 5000);
+    }
+
+
+
+
+
+
+// Add event listener to the delete form submission
+document.getElementById('deleteForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get form data
+  const form = event.target;
+  const deleteId = form.deleteId.value;
+
+  // Make DELETE request to the backend
+  fetch(`/students/${deleteId}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Student deleted successfully');
+      form.reset();
+      displayMessage('Student deleted successfully', 'success');
+    } else {
+      response.json().then(data => {
+        console.error('Failed to delete student:', data.message);
+        displayMessage(`Failed to delete student: ${data.message}`, 'error');
+      }).catch(error => {
+        console.error('Failed to delete student');
+        displayMessage('Failed to delete student', 'error');
+      });
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    displayMessage('An error occurred while deleting student', 'error');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+function retrieveStudents() {
+  fetch('http://localhost:3000/students')
+    .then(response => response.json())
+    .then(data => {
+      let table = document.createElement('table');
+      table.classList.add('students-table'); // Add a class for styling
+
+      let headerRow = document.createElement('tr');
+      let idHeader = document.createElement('th');
+      idHeader.textContent = 'ID';
+      let nameHeader = document.createElement('th');
+      nameHeader.textContent = 'Name';
+      let emailHeader = document.createElement('th');
+      emailHeader.textContent = 'Email';
+      let titleHeader = document.createElement('th');
+      titleHeader.textContent = 'Title';
+      let eircodeHeader = document.createElement('th');
+      eircodeHeader.textContent = 'Eircode';
+
+      headerRow.appendChild(idHeader);
+      headerRow.appendChild(titleHeader);
+      headerRow.appendChild(nameHeader);
+      headerRow.appendChild(emailHeader);
+      headerRow.appendChild(eircodeHeader);
+
+      table.appendChild(headerRow);
+
+      data.forEach(student => {
+        let row = document.createElement('tr');
+        let idCell = document.createElement('td');
+        idCell.textContent = student._id; // Access the full ObjectId
+        let nameCell = document.createElement('td');
+        nameCell.textContent = `${student.firstName} ${student.lastName}`; // Combine first and last names
+        let emailCell = document.createElement('td');
+        emailCell.textContent = student.email;
+        let titleCell = document.createElement('td');
+        titleCell.textContent = student.title;
+        let eircodeCell = document.createElement('td');
+        eircodeCell.textContent = student.address.eircode; // Retrieve and display the Eircode
+
+        row.appendChild(idCell);
+        row.appendChild(titleCell);
+        row.appendChild(nameCell);
+        row.appendChild(emailCell);
+        row.appendChild(eircodeCell);
+
+        table.appendChild(row);
+      });
+
+      let container = document.getElementById('students-container');
+      container.innerHTML = '';
+      container.appendChild(table);
+    })
+    .catch(error => console.log(error));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add event listener to the form submission
+document.getElementById('tutorForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+  
+  // Get form data
+  const form = event.target;
+  const formData = new FormData(form);
+  const tutorData = Object.fromEntries(formData.entries());
+
+  // Make POST request to the backend
+  fetch('/tutors', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(tutorData)
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Tutor added successfully');
+      // Reset the form
+      form.reset();
+      displayMessage('Tutor added successfully', 'success');
+    } else {
+      response.json().then(data => {
+        console.error('Failed to add tutor:', data.message);
+        displayMessage(`Failed to add tutor: ${data.message}`, 'error');
+      }).catch(error => {
+        console.error('Tutor added successfully');
+        displayMessage('Tutor added successfully');
+      });
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    displayMessage('An error occurred while adding tutor', 'error');
+  });
+});
+
+
+
+
+
+
+
+
+
+// Add event listener to the update tutor form submission
+document.getElementById('updateTutorForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get form data
+  const form = event.target;
+  const tutorId = form.elements.tutorId.value;
+  const updatedTutorData = {
+    title: form.elements.updateTitle.value,
+    firstName: form.elements.updateFirstName.value,
+    lastName: form.elements.updateLastName.value,
+    phoneNumber: form.elements.updatePhoneNumber.value,
+    email: form.elements.updateEmail.value,
+    address: {
+      line1: form.elements.updateAddressLine1.value,
+      line2: form.elements.updateAddressLine2.value,
+      town: form.elements.updateTown.value,
+      county: form.elements.updateCounty.value,
+      eircode: form.elements.updateEircode.value
+    }
+  };
+
+  // Make PUT request to the backend
+  fetch(`/tutors/${tutorId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedTutorData)
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Tutor updated successfully');
+        form.reset();
+        displayMessage('Tutor updated successfully', 'success');
+      } else {
+        response.json().then(data => {
+          console.error('Failed to update tutor:', data.message);
+          displayMessage(`Failed to update tutor: ${data.message}`, 'error');
+        }).catch(error => {
+          console.error('Failed to update tutor');
+          displayMessage('Failed to update tutor', 'error');
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      displayMessage('An error occurred while updating tutor', 'error');
+    });
+});
+
+
+
+
+
+
+
+
+
+// Add event listener to the deleteForm submission
+document.getElementById('deleteTutorForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form data
+    const form = event.target;
+    const deleteId = form.deleteId.value;
+
+    // Make DELETE request to the backend
+    fetch(`/tutors/${deleteId}`, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Tutor deleted successfully');
+        form.reset();
+        displayMessage('Tutor deleted successfully', 'success');
+      } else {
+        response.json().then(data => {
+          console.error('Failed to delete tutor:', data.message);
+          displayMessage(`Failed to delete tutor: ${data.message}`, 'error');
+        }).catch(error => {
+          console.error('Failed to delete tutor');
+          displayMessage('Failed to delete tutor', 'error');
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      displayMessage('An error occurred while deleting tutor', 'error');
+    });
+  });
+
+
+
+
+
+
+
+
+
+  function retrieveTutors() {
+  fetch('http://localhost:3000/tutors')
+    .then(response => response.json())
+    .then(data => {
+      let table = document.createElement('table');
+      table.classList.add('tutors-table'); // Add a class for styling
+
+      let headerRow = document.createElement('tr');
+      let idHeader = document.createElement('th');
+      idHeader.textContent = 'ID';
+      let nameHeader = document.createElement('th');
+      nameHeader.textContent = 'Name';
+      let emailHeader = document.createElement('th');
+      emailHeader.textContent = 'Email';
+      let titleHeader = document.createElement('th');
+      titleHeader.textContent = 'Title';
+      let eircodeHeader = document.createElement('th');
+      eircodeHeader.textContent = 'Eircode';
+
+      headerRow.appendChild(idHeader);
+      headerRow.appendChild(titleHeader);
+      headerRow.appendChild(nameHeader);
+      headerRow.appendChild(emailHeader);
+      headerRow.appendChild(eircodeHeader);
+
+      table.appendChild(headerRow);
+
+      data.forEach(tutor => {
+        let row = document.createElement('tr');
+        let idCell = document.createElement('td');
+        idCell.textContent = tutor._id; // Access the full ObjectId
+        let nameCell = document.createElement('td');
+        nameCell.textContent = `${tutor.firstName} ${tutor.lastName}`; // Combine first and last names
+        let emailCell = document.createElement('td');
+        emailCell.textContent = tutor.email;
+        let titleCell = document.createElement('td');
+        titleCell.textContent = tutor.title;
+        let eircodeCell = document.createElement('td');
+        eircodeCell.textContent = tutor.address.eircode; // Retrieve and display the Eircode
+
+        row.appendChild(idCell);
+        row.appendChild(titleCell);
+        row.appendChild(nameCell);
+        row.appendChild(emailCell);
+        row.appendChild(eircodeCell);
+
+        table.appendChild(row);
+      });
+
+      let container = document.getElementById('tutors-container');
+      container.innerHTML = '';
+      container.appendChild(table);
+    })
+    .catch(error => console.log(error));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createTutorial(event) {
+    // Prevent form submission behavior
+    event.preventDefault();
+
+    // Retrieve input field values
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const students = document.getElementById('students').value;
+    const tutor = document.getElementById('tutor').value;
+    const fee = document.getElementById('fee').value;
+    const tutorialNumber = document.getElementById('tutorialNumber').value;
+    const attendance = document.getElementById('attendance').value;
+    const subject = document.getElementById('subject').value;
+    const notes = document.getElementById('notes').value;
+
+    // Validate required fields
+    if (!date || !time || !students || !fee || !tutorialNumber || !attendance || !subject) {
+        console.error('Incomplete tutorial data');
+        // Handle error, e.g., display an error message to the user
+        return;
+    }
+
+    // Construct tutorial data object
+    const tutorialData = {
+        date,
+        time,
+        students: students.split(','),
+        tutor,
+        fee,
+        tutorialNumber,
+        attendance,
+        subject,
+        notes
+    };
+
+    console.log('Tutorial data:', tutorialData);
+
+    // Send tutorial data to the server
+    fetch('/tutorials', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tutorialData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Tutorial created:', data);
+            // Handle success, e.g., display a success message
+        })
+        .catch(error => {
+            console.error('Failed to create tutorial:', error.message);
+            // Handle error, e.g., display an error message
+        });
+}
+
+// Attach event listener to submit button
+document.getElementById('submitButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    createTutorial(event); // Pass the event parameter to the function
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function retrieveTutorials() {
+  fetch('http://localhost:3000/tutorials')
+    .then(response => response.json())
+    .then(data => {
+      let table = document.createElement('table');
+      table.classList.add('tutorials-table'); // Add a class for styling
+
+      let headerRow = document.createElement('tr');
+      let idHeader = document.createElement('th');
+      idHeader.textContent = 'ID';
+      let dateHeader = document.createElement('th');
+      dateHeader.textContent = 'Date';
+      let timeHeader = document.createElement('th');
+      timeHeader.textContent = 'Time';
+      let tutorHeader = document.createElement('th');
+      tutorHeader.textContent = 'Tutor';
+      let feeHeader = document.createElement('th');
+      feeHeader.textContent = 'Fee';
+      let subjectHeader = document.createElement('th');
+      subjectHeader.textContent = 'Subject';
+
+      headerRow.appendChild(idHeader);
+      headerRow.appendChild(dateHeader);
+      headerRow.appendChild(timeHeader);
+      headerRow.appendChild(tutorHeader);
+      headerRow.appendChild(feeHeader);
+      headerRow.appendChild(subjectHeader);
+
+      table.appendChild(headerRow);
+
+      data.forEach(tutorial => {
+        let row = document.createElement('tr');
+        let idCell = document.createElement('td');
+        idCell.textContent = tutorial._id;
+        let dateCell = document.createElement('td');
+        dateCell.textContent = tutorial.date;
+        let timeCell = document.createElement('td');
+        timeCell.textContent = tutorial.time;
+        let tutorCell = document.createElement('td');
+        tutorCell.textContent = tutorial.tutor;
+        let feeCell = document.createElement('td');
+        feeCell.textContent = tutorial.fee;
+        let subjectCell = document.createElement('td');
+        subjectCell.textContent = tutorial.subject;
+
+        row.appendChild(idCell);
+        row.appendChild(dateCell);
+        row.appendChild(timeCell);
+        row.appendChild(tutorCell);
+        row.appendChild(feeCell);
+        row.appendChild(subjectCell);
+
+        table.appendChild(row);
+      });
+
+      let container = document.getElementById('tutorials-container');
+      container.innerHTML = '';
+      container.appendChild(table);
+    })
+    .catch(error => console.log(error));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
+
+
